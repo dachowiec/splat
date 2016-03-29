@@ -24,6 +24,7 @@ namespace Splat
                 "MBUNIT",
                 "NBEHAVE",
                 "VISUALSTUDIO.QUALITYTOOLS",
+                "FIXIE",
             };
 
             try {
@@ -77,7 +78,7 @@ namespace Splat
 
             return fileTask.Result.Any(x => assemblyList.Any(name => x.ToUpperInvariant().Contains(name)));
 #else
-            return AppDomain.CurrentDomain.GetAssemblies()
+			            return AppDomain.CurrentDomain.GetAssemblies()
                 .Select(x => x.FullName.ToUpperInvariant())
                 .Any(x => assemblyList.Any(name => x.Contains(name)));
 #endif
